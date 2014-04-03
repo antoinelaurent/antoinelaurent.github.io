@@ -47,7 +47,7 @@ def print_tab_content(f, title, papers, active=False):
             f.write('<p><em>%s</em></p>\n' % tidy(paper.data['Journal']))
         if 'Abstract' in paper.data:
             f.write('<blockquote><p>%s</p></blockquote>\n' % tidy(paper.data['Abstract']))
-        f.write('<i class="icon-tags"></i> <a href="https://raw.github.com/hbredin/cv/master/publi/bredin.bib" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Bibtex\', \'%s\']);">.bib</a> [%s] | ' % (paper.key, paper.key))
+        f.write('<i class="icon-tags"></i> <a href="/laurent.bib" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Bibtex\', \'%s\']);">.bib</a> [%s] | ' % (paper.key, paper.key))
         f.write('<i class="icon-book"></i> <a href="/download/pdfs/%s.pdf" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Download\', \'%s\']);">.pdf</a>' % (paper.key, paper.key))
         f.write('        </div>\n')
         f.write('    </div>\n')
@@ -55,7 +55,7 @@ def print_tab_content(f, title, papers, active=False):
     f.write('</div>\n')
     f.write('</div>\n')
 
-papers = bibparse.parse_bib('../CurriculumVitae/publi/bredin.bib')
+papers = bibparse.parse_bib('laurent.bib')
 inproceedings = [paper for paper in papers if paper.btype == 'inproceedings']
 articles = [paper for paper in papers if paper.btype == 'article']
 chapters = [paper for paper in papers if paper.btype == 'inbook']
