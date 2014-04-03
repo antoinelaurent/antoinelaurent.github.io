@@ -1,1 +1,36 @@
-coucou
+---
+layout: page
+title: Home
+---
+{% include JB/setup %}
+
+<div class="row-fluid">
+  <div class="span9">
+	  <h2>News</h2>
+{% assign posts_list = site.posts %}
+{% for post in posts_list  %}
+	<li><span><strong>{{ post.date | date: "%Y-%m-%d" }}</strong></span> | <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+{% assign posts_list = nil %}
+  </div>
+  <div class="span3">
+	  <img src="images/me.jpg" width=100%/>
+      <dl>
+	  <div class="row-fluid">
+		  <div class="span6"><a href="http://scholar.google.com/citations?user=obEwWjZOI0cC"><img src="http://scholar.google.com/intl/en/images/scholar_logo_lg_2011.gif" width="80" border="0" alt="Google Scholar profile"></a></div>
+	      <div class="span6"><a href="http://fr.linkedin.com/in/hbredin"><img src="http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15_fr_FR.png?locale=" width="80" height="15" border="0" alt="LinkedIn profile"></a></div>
+	  </div>
+        <dt>e-m@il</dt>
+        <dd>lastname@limsi.fr</dd>
+        <dt>mail</dt>
+        <dd>LIMSI-CNRS</dd>
+		<dd>BP 133</dd>
+		<dd>F-91403 ORSAY CEDEX</dd>
+        <dt>phone</dt>
+        <dd>+33 (0) 1 69 85 81 84</dd>
+	  </dl>
+	</div>
+</div>
+
+
+
