@@ -2,9 +2,15 @@
 html, body {
   background-color: #eee;
 }
+
+h3{
+  border-bottom: 1px;
+}
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
+
 
 /* The white background content wrapper */
 .content {
