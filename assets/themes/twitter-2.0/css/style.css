@@ -3,10 +3,6 @@ html, body {
   background-color: #eee;
 }
 
-h3{
- border-style:solid;
- border-bottom: 10px;
-}
 
 .container > footer p {
   text-align: center; /* center align it with the container */
