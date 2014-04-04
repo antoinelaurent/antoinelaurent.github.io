@@ -3,6 +3,7 @@
 
 import bibparse
 import sys
+import os
 
 def tidy(string):
     replacements = [("{", ""), ("}", ""),
@@ -48,7 +49,9 @@ def print_tab_content(f, title, papers, active=False):
         if 'Abstract' in paper.data:
             f.write('<blockquote><p>%s</p></blockquote>\n' % tidy(paper.data['Abstract']))
         f.write('<i class="icon-tags"></i> <a href="/laurent.bib" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Bibtex\', \'%s\']);">.bib</a> [%s] | ' % (paper.key, paper.key))
-        f.write('<i class="icon-book"></i> <a href="/download/pdfs/%s.pdf" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Download\', \'%s\']);">.pdf</a>' % (paper.key, paper.key))
+        fichier="download/pdfs/%s.pdf"% (paper.key)
+	if os.path.isfile(fichier):
+		f.write('<i class="icon-book"></i> <a href="/download/pdfs/%s.pdf" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Download\', \'%s\']);">.pdf</a>' % (paper.key, paper.key))
         f.write('        </div>\n')
         f.write('    </div>\n')
         f.write('</div>\n')
