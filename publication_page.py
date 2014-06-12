@@ -93,3 +93,4 @@ print_tab_content(f, 'Conference and workshop proceedings', inproceedings)
 f.write('</div>\n')
 
 f.close()
+os.system("cat analytics.js >> research/publications.html")
