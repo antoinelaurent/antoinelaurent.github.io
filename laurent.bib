@@ -60,9 +60,9 @@
 @inproceedings{Laurent14d,
   Author = {Laurent, A. and Hartmann, W. and Lamel, L.},
   Year = {2014},
+  Title = {Unsupervised Acoustic Model Training for the Korean Language},
    Booktitle = {ISCSLP@Interspeech 2014, 15th Annual Conference of the International Speech Communication Association},
-   Abstract = {This paper investigates the development of a speech-to-text transcription system for the Korean language in the context of the DGA RAPID Rapmat project. As only a small amount of manually transcribed audio data was available, the acoustic models were trained on audio data downloaded from several Korean websites in an unsupervised manner, and the language models were trained on web texts. We assessed the effects of unsupervised training on several types of acoustic models. Initial results were reported on an unsupervised test corpus. Further experiments assessed transcription performance using a manually corrected version of this test corpus. While overall results improved, the improvements from higher-order language models disappeared and unsupervised training decreased. We investigate some possibilities for this unexpected result.},
-  Title = {Unsupervised training of the under-resourced Korean language (en attente d'acceptation / rejet)},
+   Abstract = {This paper investigates unsupervised training strategies for the Korean language in the context of the DGA RAPID Rapmat project. As with previous studies, we begin with only a small amount of manually transcribed data to build preliminary acoustic models. Using the initial models, a larger set of untranscribed audio data is decoded to produce approximate transcripts. We compare both GMM and DNN acoustic models for both the unsupervised transcription and the final recognition system. While the DNN acoustic models produce a lower word error rate on the test set, training on the transcripts from the GMM system provides the best overall performance. We also achieve better performance by expanding the original phone set.Finally, we examine the efficacy of automatically building a test set by comparing system performance both before and after manually correcting the test set.},
   address = {Singapoure},
   month = {September},
 }
