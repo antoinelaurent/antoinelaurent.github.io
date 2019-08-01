@@ -7,15 +7,15 @@ import os
 
 def tidy(string):
     replacements = [("{", ""), ("}", ""),
-                    ("\\'a", "á"),
+                    ("\\'a", "á"), 
                     ("\\'e", "é"), ('\\"e', "ë"), ("\\`e", "è"),
-                    ("\\'i", "í"), ('\\"i', "ï"), ('\\`i', "ì"),
-                    ("\\'o", "ó"),
+                    ("\\'i", "í"), ('\\"i', "ï"), ('\\`i', "ì"), 
+                    ("\\'o", "ó"), 
                     ("\\'u", "ú"), ]
     for old, new in replacements:
         string = string.replace(old, new)
     return string
-
+    
 def print_tab_title(f, title, papers):
     href = ''.join(title.split())
     f.write('<li><a href="#%s" data-toggle="tab">%s (%d)</a></li>\n' % (href, title, len(papers)))
@@ -50,15 +50,15 @@ def print_tab_content(f, title, papers, active=False):
             f.write('<blockquote><p>%s</p></blockquote>\n' % tidy(paper.data['Abstract']))
         f.write('<i class="icon-tags"></i> <a href="/laurent.bib" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Bibtex\', \'%s\']);">.bib</a> [%s] | ' % (paper.key, paper.key))
         fichier="download/pdfs/%s.pdf"% (paper.key)
-        if os.path.isfile(fichier):
-            f.write('<i class="icon-book"></i> <a href="/download/pdfs/%s.pdf" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Download\', \'%s\']);">.pdf</a>' % (paper.key, paper.key))
+	if os.path.isfile(fichier):
+		f.write('<i class="icon-book"></i> <a href="/download/pdfs/%s.pdf" onClick="_gaq.push([\'_trackEvent\', \'Publications\', \'Download\', \'%s\']);">.pdf</a>' % (paper.key, paper.key))
         else:
-            print("Ne trouve pas %s !!" % fichier)
-        f.write('        </div>\n')
+		print "Ne trouve pas %s !!" % fichier
+	f.write('        </div>\n')
         f.write('    </div>\n')
         f.write('</div>\n')
-        f.write('</div>\n')
-        f.write('</div>\n')
+    f.write('</div>\n')
+    f.write('</div>\n')
 
 papers = bibparse.parse_bib('laurent.bib')
 inproceedings = [paper for paper in papers if paper.btype == 'inproceedings']
