@@ -1,4 +1,66 @@
+@inproceedings{khurana20,
+  Title = {{A Convolutional Deep Markov Model for Unsupervised Speech Representation Learning}},
+  Author = {Sameer Khurana and Antoine Laurent and Wei-Ning Hsu and Jan Chorowski and Adrian Lancucki and Ricard Marxer and James Glass},
+  Booktitle = {{Interspeech 2020}},
+  Abstract = {Probabilistic Latent Variable Models (LVMs) provide an alternative to self-supervised learning approaches for linguistic representation learning from speech. LVMs admit an intuitive probabilistic interpretation where the latent structure shapes the information extracted from the signal. Even though LVMs have recently seen a renewed interest due to the introduction of Variational Autoencoders (VAEs), their use for speech representation learning remains largely unexplored. In this work, we propose Convolutional Deep Markov Model (ConvDMM), a Gaussian state-space model with non-linear emission and transition functions modelled by deep neural networks. This unsupervised model is trained using black box variational inference. A deep convolutional neural network is used as an inference network for structured variational approximation. When trained on a large scale speech dataset (LibriSpeech), ConvDMM produces features that significantly outperform multiple self-supervised feature extracting methods on linear phone classification and recognition on the Wall Street Journal dataset. Furthermore, we found that ConvDMM complements self-supervised methods like Wav2Vec and PASE, improving on the results achieved with any of the methods alone. Lastly, we find that ConvDMM features enable learning better phone recognizers than any other features in an extreme low-resource regime with few labeled training examples.},
+  Address = {Shanghai, China},
+  Year = {2020},
+  Month = {October}, 
+}
 
+@inproceedings{khurana20b,
+  Title = {{CSTNet: Contrastive Speech Translation Network for Self-Supervised Speech Representation Learning}},
+  Author = {Sameer Khurana and Antoine Laurent and James Glass},
+  Abstract = {More than half of the 7,000 languages in the world are in imminent danger of
+going extinct. Traditional methods of documenting language proceed by
+collecting audio data followed by manual annotation by trained linguists at
+different levels of granularity. This time consuming and painstaking process
+could benefit from machine learning. Many endangered languages do not have any
+orthographic form but usually have speakers that are bi-lingual and trained in
+a high resource language. It is relatively easy to obtain textual translations
+corresponding to speech. In this work, we provide a multimodal machine learning
+framework for speech representation learning by exploiting the correlations
+between the two modalities namely speech and its corresponding text
+translation. Here, we construct a convolutional neural network audio encoder
+capable of extracting linguistic representations from speech. The audio encoder
+is trained to perform a speech-translation retrieval task in a contrastive
+learning framework. By evaluating the learned representations on a phone
+recognition task, we demonstrate that linguistic representations emerge in the
+audio encoder's internal representations as a by-product of learning to perform
+the retrieval task.},
+  Booktitle = {{Arxiv}},
+  Address = {},
+  Year = {2020},
+  Month = {June}, 
+}
+
+@inproceedings{lancucki20,
+  Title = {{Robust Training of Vector Quantized Bottleneck Models}},
+  Author = {Adrian Ła{\'n}cucki and Jan Chorowski and Guillaume Sanchez and Ricard Marxer and Nanxin Chen and Hans J G A Dolfing and Sameer Khurana and Tanel Alum{\"a}e and Antoine Laurent},
+  Booktitle = {{IJCNN 2020}},
+  Abstract = {In this paper we demonstrate methods for reliable and efficient training of
+discrete representation using Vector-Quantized Variational Auto-Encoder models
+(VQ-VAEs). Discrete latent variable models have been shown to learn nontrivial
+representations of speech, applicable to unsupervised voice conversion and
+reaching state-of-the-art performance on unit discovery tasks. For unsupervised
+representation learning, they became viable alternatives to continuous latent
+variable models such as the Variational Auto-Encoder (VAE). However, training
+deep discrete variable models is challenging, due to the inherent non-
+differentiability of the discretization operation. In this paper we focus on VQ-
+VAE, a state-of-the-art discrete bottleneck model shown to perform on par with
+its continuous counterparts. It quantizes encoder outputs with on-line k-means
+clustering. We show that the codebook learning can suffer from poor
+initialization and non-stationarity of clustered encoder outputs. We demonstrate
+that these can be successfully overcome by increasing the learning rate for the
+codebook and periodic date-dependent codeword re-initialization. As a result, we
+achieve more robust training across different tasks, and significantly increase
+the usage of latent codewords even for large codebooks. This has practical
+benefit, for instance, in unsupervised representation learning, where large
+codebooks may lead to disentanglement of latent representations.},
+  Address = {Glasgow, UK},
+  Year = {2020},
+  Month = {July}, 
+}
 
 @article{montresor20b,
   Title = {{Computational de-noising based on deep learning for phase data in digital holographic interferometry}},
@@ -16,6 +78,15 @@
   Address = {Dortmund, Germany},
   Year = {2020},
   Month = {September}, 
+}
+
+@inproceedings{caubriere2020int,
+  Title = {{Confidence measure for speech-to-concept end-to-end spoken language understanding}},
+  Author = {Antoine Caubrière and Yannick Estève and Antoine Laurent and Emmanuel Morin},
+  Booktitle = {{Interspeech 2020}},
+  Address = {Shanghai, China},
+  Year = {2020},
+  Month = {October}, 
 }
 
 @inproceedings{caubriere2020jep,
