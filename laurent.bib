@@ -1,3 +1,14 @@
+@inproceedings{bredin21,
+  Title = {End-to-end speaker segmentation for overlap-aware resegmentation},
+  Author = {Hervé Bredin, Antoine Laurent},
+  Abstract = {Speaker segmentation consists in partitioning a conversation between one or more speakers into speaker turns. Usually addressed as the late combination of three sub-tasks (voice activity detection, speaker change detection, and overlapped speech detection), we propose to train an end-to-end segmentation model that does it directly. Inspired by the original end-to-end neural speaker diarization approach (EEND), the task is modeled as a multi-label classification problem using permutation-invariant training. The main difference is that our model operates on short audio chunks (5 seconds) but at a much higher temporal resolution (every 16ms). Experiments on multiple speaker diarization datasets conclude that our model can be used with great success on both voice activity detection and overlapped speech detection. Our proposed model can also be used as a post-processing step, to detect and correctly assign overlapped speech regions. Relative diarization error rate improvement over the best considered baseline (VBx) reaches 18% on AMI, 17% on DIHARD 3, and 16% on VoxConverse.},
+  Booktitle = {{Interspeech 2021}},
+  Address = {Brno, Czech republic},
+  Year = {2021},
+  Month = {September},
+}
+
+
 @article{carrive21,
   Title = {{Transdisciplinary Analysis of a Corpus of French Newsreels: The ANTRACT Project}},
   Author = {Jean Carrive, Abdelkrim Beloued, Pascale Goetschel, Serge Heiden, Antoine Laurent, Pasquale Lisena, Franck Mazuet, Sylvain Meignier, B{\'e}n{\'e}dicte Pincemin, G{\'e}raldine Poels, Rapha{\"e}l Troncy},
