@@ -1,3 +1,24 @@
+@inproceedings{pelloinIS22,
+  Title = {ASR-Generated Text for Language Model Pre-training Applied to Speech Tasks},
+  Author = {Valentin Pelloin, Franck Dary, Nicolas Hervé, Benoit Favre, Nathalie Camelin, Antoine Laurent, Laurent Besacier},
+  Abstract = {We aim at improving spoken language modeling (LM) using very large amount of automatically transcribed speech. We leverage the INA (French National Audiovisual Institute collection and obtain 19GB of text after applying ASR on 350,000 hours of diverse TV shows. From this, spoken language models are trained either by fine-tuning an existing LM (FlauBERT) or through training a LM from scratch. New models (FlauBERT-Oral) are shared with the community and evaluated for 3 downstream tasks: spoken language understanding, classification of TV shows and speech syntactic parsing. Results show that FlauBERT-Oral can be beneficial compared to its initial FlauBERT version demonstrating that, despite its inherent noisy nature, ASR-generated text can be used to build spoken language models.},
+  Booktitle= {Interspeech 2022},
+  Address = {Incheon, South Korea},
+  Year = {2022},
+  Month = {September},
+}
+
+@inproceedings{lebourdaisIS22,
+  Title = {Overlapped speech and gender detection with WavLM pre-trained features},
+  Author = {Martin Lebourdais, Marie Tahon, Antoine Laurent, Sylvain Meignier.},
+  Abstract = {This article focuses on overlapped speech and gender detection in order to study interactions between women and men in French audiovisual media (Gender Equality Monitoring project). In this application context, we need to automatically segment the speech signal according to speakers gender, and to identify when at least two speakers speak at the same time. We propose to use WavLM model which has the advantage of being pre-trained on a huge amount of speech data, to build an overlapped speech detection (OSD) and a gender detection (GD) systems. In this study, we use two different corpora. The DIHARD III corpus which is well adapted for the OSD task but lack gender information. The ALLIES corpus fits with the project application context. Our best OSD system is a Temporal Convolutional Network (TCN) with WavLM pre-trained features as input, which reaches a new state-of-the-art F1-score performance on DIHARD. A neural GD is trained with WavLM inputs on a gender balanced subset of the French broadcast news ALLIES data, and obtains an accuracy of 94.9%. This work opens new perspectives for human science researchers regarding the differences of representation between women and men in French media.},
+  Booktitle= {Interspeech 2022},
+  Address = {Incheon, South Korea},
+  Year = {2022},
+  Month = {September},
+}
+
+
 @inproceedings{lebourdais22,
   Title = {Overlaps and Gender Analysis in the Context of Broadcast Media},
   Author = {Martin Lebourdais, Marie Tahon, Antoine Laurent, Sylvain Meignier, Anthony Larcher},
