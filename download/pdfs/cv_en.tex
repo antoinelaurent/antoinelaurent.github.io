@@ -1,0 +1,609 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[left=4cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks]{hyperref}
+\usepackage{breakurl}
+\usepackage{helvet}
+\usepackage{enumitem}
+\setdescription{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt}
+\usepackage{setspace}
+\usepackage{eurosym}
+%\usepackage{fullpage}
+
+\usepackage[bottom]{footmisc}
+
+\usepackage[final]{pdfpages}
+\usepackage[%
+backend=biber,%
+sorting=ymdnt,%
+maxbibnames=99,%
+%bibstyle=ieee,%
+style=numeric-comp,%
+natbib=true,%
+firstinits=true,%
+sortcites=true,%
+defernumbers=true,%
+doi=false,%
+isbn=false,%
+url=false%
+%dashed=false,%
+]{biblatex}
+
+
+\setlength\bibitemsep{\baselineskip}
+
+%%%%%%%%%%%%%% BIB STUFF
+\DeclareSortingScheme{ymdnt}{
+	\sort{
+		\field{presort}
+	}
+	\sort[final]{
+		\field{sortkey}
+	}
+	\sort[direction=descending]{
+		\field[strside=left,strwidth=4]{sortyear}
+		\field[strside=left,strwidth=4]{year}
+		\literal{9999}
+	}
+	\sort[direction=descending]{
+		\field{month}
+		\literal{9999}
+	}
+	\sort{
+		\field{sortname}
+		\field{author}
+		\field{editor}
+		\field{translator}
+		\field{sorttitle}
+		\field{title}
+	}
+	\sort{
+		\field{sorttitle}
+		\field{title}
+	}
+}
+
+% 
+% %\DeclareFieldFormat{labelnumberwidth}{}
+% %\setlength{\biblabelsep}{0pt}
+% 
+\defbibfilter{booksandchapters}{%
+	( type=book or type=incollection )
+}
+
+\def\makenamesetup{%
+  \def\bibnamedelima{~}%
+  \def\bibnamedelimb{ }%
+  \def\bibnamedelimc{ }%
+  \def\bibnamedelimd{ }%
+  \def\bibnamedelimi{ }%
+  \def\bibinitperiod{.}%
+  \def\bibinitdelim{~}%
+  \def\bibinithyphendelim{.-}}    
+\newcommand*{\makename}[2]{\begingroup\makenamesetup\xdef#1{#2}\endgroup}
+
+\newcommand*{\boldname}[3]{%
+  \def\lastname{#1}%
+  \def\firstname{#2}%
+  \def\firstinit{#3}}
+\boldname{}{}{}
+
+% Patch new definitions
+\renewcommand{\mkbibnamegiven}[1]{%
+  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+\renewcommand{\mkbibnamefamily}[1]{%
+  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+\boldname{Laurent}{Antoine}{}
+
+\makeatletter
+\DeclareCiteCommand{\fullcite}
+  {\defcounter{maxnames}{\blx@maxbibnames}%
+    \usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
+  {\defcounter{maxnames}{\blx@maxbibnames}%
+    \usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\makeatother
+
+\addbibresource{laurent_tout.bib}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\Roman{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+\title{Non-MOU Grant application: CV}
+\author{Antoine LAURENT}
+
+\begin{document}
+
+\maketitle
+
+\section*{Résumé des travaux}
+
+\paragraph{Publications et production scientifique}
+
+% Nombre de publications par type
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+\item[Thématique] {\bf Machine perception} \\
+    Méthodes computationnelles pour l'étude de la parole \\
+    Multi-modalité et multicanal, intelligibilité et apprentissage non-supervisé
+\item[Revues] {\bf 4 } (Human Nature - Impact Factor 10.5, APL Photonics - Imact Factor 4.4, CSL - 1.9)
+\item[Conf. internationales]  {\bf 34 } (Interspeech, ICASSP, SLT, NeurIPS, ICFHR)
+\item[Conf. Nationales] {\bf 13} (JEP, TALN)
+\item[Participation défis]  {\bf 2} open-ASR 2020, dihard 3 2020
+\item[Logiciels]  {\bf 4} bibliothèques logicielles (DistSup, Pyannote, LIUMSpeech2019, Captoo)
+\item[Données]  {\bf 2} jeux de données (PASTEL, ScribbleLens)
+\end{description}
+
+\paragraph{Encadrement doctoral et scientifique (5 dernières années)}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+\item[Doct. S. Mdhaffar] {\bf 25\%} Segmentation thématique de transcriptions automatiques
+\item[Doct. A. Caubrière] {\bf 33\%} Réseaux de neurones profonds pour le traitement de la langue orale et écrite
+\item[Doct. V. Pelloin] {\bf 30\%} Intelligence Artificielle pour la compréhension de la parole contrôlée par la sémantique
+\item[Doct. M. Lebourdais] {\bf 30\%} Détection et qualification des overlaps dans la parole (Man's terrupting) 
+\item[Master V. Pelloin] {\bf 50\%} IA pour la compréhension de la parole\footnote{Maintenant en thèse doctoral}
+\item[Master T.Tessier] {\bf 50\%} Modèle neuronaux pour la traduction de la parole
+\item[Master R. Wibaux] {\bf 50\%} Séparation de données personnelles dans la parole
+\item[Comité Suivi Ind.] {\bf 3} F. Desnous, E. Simonnet, Y. Prokopolo 
+\end{description}
+
+\paragraph{Diffusion des travaux (rayonnement et vulgarisation) (5 dernières années)}
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+\item[Jury de thèse]  {\bf 2} (co-encadrant de thèse)
+\item[Ateliers organisés]  {\bf 2} (Hackaton TALN-2018, TRIUM 2017)
+\item[Conf. organisées]  {\bf 2} (SLSP 2017, Odyssey 2018)
+\item[Autres]  
+        Co-porteur  {\bf Jelinek Workshop} \\
+        Invité à la conférence LT4ALL (UNESCO décembre 2019) \\
+        Reviewer d'un projet ANR CE23 - Intelligence Artificielle
+\item[Vulgarisation] Démonstration lors de l'évènement "nos quartiers notre avenir", Le Mans 2019\\
+Démonstrateur lors de la nuit des chercheurs (ville du Mans) 2018
+\end{description}
+
+\paragraph{Responsabilités scientifiques (5 dernières années)}
+ 
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+\item[Scientifiques] Impliqué dans {\bf 9} contrats recherche (ANR, Région) au cours de la période \\
+    Resp. scientifique équipe LST du LIUM de {\bf 2} projets ANR (GEM, Pastel),
+   Membre du Conseil Scientifique de l'UFR sciences de l'Université du Mans,
+   Responsable scientifique du contrat de collaboration de recherche passé en le LIUM et la société Spécinov
+\item[Autres]  Responsable de la L2 informatique (70 étudiants) \\
+Responsable de l'informatique pour les L2 de l'UFR Sciences (130 étudiants)
+\end{description}
+
+\clearpage
+
+\section{Identification / Données administratives}
+\begin{description}[noitemsep, font=\normalfont, align=right, leftmargin=*]
+\item[Civilité] {\bf M}
+\item[Nom de famille] {\bf LAURENT}
+\item[Prénom] {\bf Antoine}
+\item[Date de naissance] {\bf 26 - Août - 1983}
+\item[Grade] {\bf MCF CN échelon 6}
+\item[Éts. d’affectation] {\bf Université du Mans}
+\item[Section CNU] {\bf 27 Informatique}
+\item[Unité de Recherche] {\bf Lab. d'Informatique de l'Université du Mans (LIUM)}
+\end{description}
+
+\subsection{Parcours professionnel}
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+\item[2016--présent] {\bf Maître de Conférences}, Université du Mans
+\item[2014--2016] {\bf Ingénieur R\&D}, Vocapia Research, Orsay
+\item[2013--2014] {\bf Ingénieur de recherche} LIMSI-CNRS, Orsay
+\item[2009--2013] {\bf Ingénieur R\&D} mi-temps, Spécinov, Trélazé\\
+{\bf PAST} mi temps, Université du Mans 
+\item[2007-2010] {\bf Doctorant} au LIUM, Le Mans Université
+\end{description}
+
+\subsection{Formation}
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+\item[2007--2010] {\bf Doctorat en Informatique},  Le Mans Université \\
+"Auto-adaptation et reconnaissance automatique de la parole".\\
+ Directeur de thèse : Pr Paul Deléglise, co-directeur : Dr Sylvain Meignier
+\item[2006] {\bf Master} génie Informatique, spécialité Communication Homme-Machine, Le Mans Université
+\item[2005] {\bf Maitrise} génie Informatique, Le Mans Université
+\item[2004] {\bf Licence} Micro-Informatique, Le Mans Université
+\item[2003] {\bf DEUG} Mathématiques, Informatique et Application aux Sciences, , Le Mans Université
+\end{description}
+
+\section{Activités scientifiques}
+% En préambule, exposer brièvement ici les thématiques de recherche.
+% Generale: Étude de la parole et l'audition par moyen des méthodes computationnelles
+% Precise: 
+%  - Multimodalité et multicanal,
+%  - intelligibilité, et
+%  - non-supervisé
+
+Mes recherches se concentrent principalement sur le développement de systèmes de reconnaissance automatique de la parole et en la mise en oeuvre de méthodes connexes en vue de son exploitation.
+
+Recruté en 2016 à l'Université du Maine, j'ai intégré l'équipe "Language and Speech Technology" (LST) du Laboratoire d'Informatique de l'Université du Maine (LIUM). Aujourd'hui, l'activité scientifique de cette équipe porte sur le traitement de la parole : la segmentation et le regroupement en locuteur, la traduction, la transcription, la compréhension et la synthèse.
+Mes travaux de recherche concernent principalement la transcription et la compréhension de la parole, mais je travaille aussi sur la ségmentation et le regroupement en locuteur, ainsi qu'en traduction de la parole.
+
+\begin{description}
+	\item[La transcription de la parole] : je travaille dans le domaine de la transcription de la parole depuis le début de mon doctorat obtenu en 2010 au LIUM. 
+	
+	Mes travaux de thèse, réalisés dans le cadre d'une convention CIFRE avec la société Spécinov\footnote{\url{https://www.specinov.fr}}, ont portés sur deux thèmes : la mise en place d'une méthode de réordonnancement automatique des hypothèses de reconnaissance produites par le système de transcription \cite{Laurent11} et une méthode de phonétisation automatique des noms propres s'appuyant à la fois sur les réalisations acoustiques des noms propres et sur leur graphie \cite{Laurent14c,Laurent10-b,Laurent09b,Laurent09,Laurent08}.
+	Durant mon postdoctorat au Laboratoire d’Informatique pour la Mécanique et les Sciences de l’Ingénieur (LIMSI), j'ai travaillé, entre autres, sur le développement de système d'ASR non supervisé \cite{Laurent14d}, et dans le cadre du projet IARPA Babel \footnote{http://www.iarpa.gov/index.php/research-programs/babel} sur l'apprentissage d'ASR sous contraintes de ressources \cite{Fraga15b, Laurent16}.
+	
+	Durant l'été 2019, j'ai été co-organisateur d'un workshop "JSALT", porté par l'université Johns Hopkins (Baltimore, USA) pour une durée de 6 semaines. Notre équipe a travaillé sur l'apprentissage semi/non supervisé de représentations de la parole. Ce travail m'a permis de débuter une collaboration avec un étudiant du MIT (Sameer Khurana) avec qui je continue de travailler sur cette thématique \cite{chorowski19, dolfing20, lancucki20, khurana20b, khurana20}.
+\end{description}
+
+\begin{description}
+	\item[Applications mettant en jeu de l'ASR] :
+	Dans le cadre de l'encadrement de la thèse de Salima Mdhaffar, financée par le projet ANR Pastel\footnote{\href{https://projets-lium.univ-lemans.fr/pastel/}{https://projets-lium.univ-lemans.fr/pastel/}}, nous avons travaillé sur la transcription en temps réel de cours magistraux. L'objectif était d'aider les apprenants en leur fournissant des liens vers des ressources externes durant le cours, et en leur permettant de réviser le module en naviguant dans la transcription automatique. Dans ce contexte, nous avons travaillé sur des techniques d'adaptation du modèle de langage du système de transcription et sur l'élaboration de métriques pour l'évaluation en vue d'une exploitation par les étudiants \cite{Mdhaffar18b,Mdhaffar19b, Mdhaffar2019}. Un corpus Pastel a également été réalisé \cite{mdhaffar2020}.
+	
+	Les travaux de thèse d'Antoine Caubrière et de Valentin Pelloin m'ont amené à collaborer avec eux sur l'extraction de concepts et d'entités nommées depuis le signal et sur l'analyse des erreurs \cite{Ghannay2018, Caubriere2019, caubriere2019curriculum, caubriere2020, caubriere2020b, caubriere2020int, pelloin21}.
+	
+	J'ai aussi travaillé sur la segmentation, le regroupement, et l'identification nommée du locuteur  \cite{Laurent12, Laurent14b, bredin21}, ainsi que sur la détection du rôle du locuteur \cite{Laurent12j1, Laurent14j1,Laurent14e}.
+\end{description}
+
+
+
+
+
+\subsection{Publications et production scientifique}
+% Fournir pour chaque publication, les informations factuelles précises (développer les acronymes, indiquer les n° des revues, n° des pages, dates et lieux des conférences, etc) ainsi que le taux de sélection.
+% -- Parmi les publications, indiquer les cinq publications considérées comme majeures (en les hiérarchisant) et les situer dans leur contexte de recherche. 
+% -- Pour ces 5 publications, le candidat décrira sa contribution.
+
+\subsubsection{Publications}
+\begingroup
+\setlength\bibitemsep{5pt}
+
+\nocite{*}
+\paragraph{Articles de journaux internationaux avec comité de lecture}
+\printbibliography[title={Articles de journaux internationaux avec comité de lecture},type={article}, heading=none]
+\paragraph{Articles de conférences internationales avec comité de lecture}
+\printbibliography[title={Articles de conférences internationales avec comité de lecture},type={inproceedings}, heading=none]
+\paragraph{Articles de conférences nationales avec comité de lecture}
+\printbibliography[title={Articles de conférences nationales avec comité de lecture},type={inproceedingsfr}, heading=none]
+\paragraph{Publication "libre"}
+\printbibliography[title={Articles de conférences internationales avec comité de lecture},type={inproceedingsarxiv}, heading=none]
+
+
+\endgroup
+{\tiny }
+\subsubsection{Développement logiciel}
+% Participation à des défis/compétitions internationales (indiquer le classement, le nombre de participants, etc)
+\begin{itemize}
+\item Application pour la génération automatique de compte-rendus de réunions (toujours en vente) \\
+{\bf Captoo} \\
+\href{https://captoo.fr/}{https://captoo.fr/}
+
+\item Préparation, analyse et publication du jeux de données \\
+{\bf ScribbleLens} \\
+Thématique : Écriture manuscrite, apprentissage non-supervisé \\
+\href{https://openslr.org/84/}{https://openslr.org/84/}
+\item Préparation, analyse et publication du jeux de données \\
+{\bf PASTEL} \\
+Thématique : Le corpus PASTEL consiste en une collection de cours de différents domaines informatique (traitement automatique des langues, introduction à l’informatique, etc) en première année de licence d’informatique à l’Université de Nantes. Il est constitué de cours qui proviennent de deux sources : le projet COCo (Comin Open Courseware) et la plateforme Canal-U. Ce corpus a été créé dans le cadre du projet ANR PASTEL. Le corpus contient le discours de l’enseignant, les supports de présentation du cours (diapositives) et la vidéo. Il s’accompagne d’informations annotées manuellement par des experts humains, à savoir une segmentation thématique des cours, une annotation en expressions clés (à partir des diapositives et à partir de la transcription manuelle), et enfin un alignement des diapositives avec la vidéo \cite{mdhaffar2020} \\
+\href{https://git-lium.univ-lemans.fr/sgascoin/pastel}{https://git-lium.univ-lemans.fr/sgascoin/pastel}
+\item Co-auteur de la bibliothèque logicielle 
+{\bf DistSup} pour faciliter la recherche dans l'apprentissage à faible supervision\\
+Thématique : apprentissage non-supervisé \\
+Publiée en Février 2020\\
+\href{https://github.com/distsup/DistSup}{https://github.com/distsup/DistSup}
+\item Collaboration à l'écriture de la bibliothèque logicielle
+{\bf Pyannote-Audio - Auteur Hervé Bredin)} \\
+Thématique : segmentation en locuteur via des techniques de Deep-Learning \\
+\href{https://github.com/pyannote/pyannote-audio}{https://github.com/pyannote/pyannote-audio}
+\item Dépot Logiciel à  l’agence pour la protection des programmes (enregistré en date du 01/09/19)
+{\bf LiumSpeech 2019 - Auteur Antoine Laurent)} \\
+Thématique : système de reconnaissance automatique de la parole du LIUM \\
+
+\end{itemize}
+
+% Constitution de plate-forme de données (indiquer le nombre d’accès, la taille de la communauté d’utilisateurs).
+
+% Diffusion via un site (indiquer le nombre de téléchargements, la taille de la communauté d’utilisateurs, le nombre de lignes de code)
+
+\subsubsection{Publications majeures (5)}\label{sec:pub_majeurs}
+% TODO: developper chacun
+
+\paragraph{Perception de la parole}  Plusieurs contributions sur cet axe thématique ont été réalisées, en particulier ce que nous avons appelé le CSTNet et les DMM convolutionnels. Les modèles à variable latente probabiliste (LVM) offrent une alternative aux approches d'apprentissage auto-supervisé pour la représentation linguistique de parole. Les LVM admettent une interprétation probabiliste intuitive où la structure latente façonne les informations extraites du signal. Même si les LVM ont récemment connu un regain d'intérêt en raison de l'introduction des autoencodeurs variationnels (VAE), leur utilisation pour l'apprentissage de la représentation vocale reste largement inexplorée. Dans cette thématique, nous avons proposé 2 approches, l'une basée sur l'utilisation d'une fonction de cout contrastive (CSTNet), l'autre que nous avons nommé Convolutional Deep Markov Model (ConvDMM), un modèle d'espace d'états gaussien avec des fonctions d'émission et de transition non linéaires modélisées par des réseaux de neurones profonds. Ce modèle non supervisé est formé à l'aide de l'inférence variationnelle en boîte noire. Un réseau neuronal convolutif profond est utilisé comme réseau d'inférence pour une approximation variationnelle structurée. Lorsqu'il est formé sur un ensemble de données vocales à grande échelle (LibriSpeech), ConvDMM produit des fonctionnalités qui surpassent considérablement plusieurs méthodes d'extraction d'entités auto-supervisées. En outre, nous avons constaté que ConvDMM complète les méthodes auto-supervisées telles que Wav2Vec et PASE, améliorant les résultats obtenus avec l'une des méthodes seules. Enfin, nous constatons que les fonctionnalités ConvDMM permettent d'apprendre de meilleurs outils de reconnaissance de la parole téléphonique dans un régime de ressources extrêmement faibles avec peu d'exemples étiquetés.
+Ces travaux ont initiés une collaboration étroite avec le MIT et ont menés à une publication dans une conférence majeure du domaine :
+
+\begin{itemize}
+ \item \fullcite{khurana20} 
+\end{itemize}
+
+
+\paragraph{Débruitage d'images de phase} Cet article présente un algorithme basé sur l'apprentissage en profondeur dédié au traitement du bruit de speckle dans les mesures de phase en interférométrie holographique numérique. L'architecture d'apprentissage en profondeur est formée avec des modèles de franges de phase comprenant un bruit de chatoiement fidèle, ayant des statistiques non gaussiennes, des propriétés non stationnaires et présentant une longueur de corrélation spatiale. Les performances du dépoussiéreur de speckle sont estimées avec des métriques et l'approche proposée présente des résultats à la pointe de la technologie. Afin de former le réseau à des motifs de franges de phase sans bruit, une base de données est constituée d'un ensemble de données de phase sans bruit et mouchetées. L'algorithme est appliqué pour éliminer le bruit des données expérimentales de la vibrométrie holographique numérique à grand champ. La comparaison avec un algorithme de pointe confirme les performances obtenues.
+Les résultats de cette recherche sont présentés dans l'article de revue :
+
+\begin{itemize}
+ \item \fullcite{montresor20b} 
+\end{itemize}
+
+\paragraph{Compréhension de la parole} Nous avons proposé des techniques d'extraction de concepts sémantiques directement depuis le signal audio. L'idée de l'approche, fonctionnant en curriculum-learning, consiste à spécialiser peu à peu un modèle pour le rendre capable de générer des tags qui représentent le début et la fin des concepts. Il s'agit d'un travail novateur, puisque les informations ajoutées ne sont pas portées par des traits acoustiques mais par le contenu sémantique du discours. Ces travaux débutés par le thésard Antoine Caubrière puis repris ensuite par Valentin Pelloin (thèse débutée en septembre 2020), on menés à plusieurs publications dont :
+
+\begin{itemize}
+ \item \fullcite{Caubriere2019}
+\end{itemize}
+
+\paragraph{Mesures de confiance pour l'extraction de concepts sémantiques} Après avoir proposé des techniques innovantes d'extraction de concepts à partir du signal, nous avons proposé un moyen de calculer des mesures de confiance sur des concepts sémantiques.  Nous avons étudié la couche cachée du CTC de notre modèle d'extraction de concepts end-to-end pour réaliser des deux types de classifieurs, l'un basé sur un simple MLP l'autre utilisant des réseaux du type bLSTM, puis nous avons comparé la mesure de confiance attribuée par ses 2 classifieurs avec la mesure provenant de la sortie softmax de notre extracteur de concept. Ces travaux ont menés à la publication de plusieurs papiers, dont :
+
+\begin{itemize}
+ \item \fullcite{caubriere2020int}
+\end{itemize}
+
+\paragraph{Corpus PASTEL - Performing Automated Speech Transcription for Enhancing Learnin} Dans le cadre de la thèse de Salima Mdhaffar, nous avons produit un ensemble de données pédagogiques multimodales en français sur les cours oraux. Ce corpus vise à explorer le potentiel de la transcription vocale synchrone et différents apports automatique (recherche de ressources externes en direct, ...) dans des situations d'enseignement spécifiques (Bettenfeld et al., 2018; Bettenfeld et al., 2019). Il comprend 10 heures de cours différents, transcrite et segmentée manuellement. L'intérêt principal de ce corpus réside dans son aspect multimodal : en plus de la parole, les cours ont été filmés et les supports de présentation écrits (diapositives) sont mis à disposition. L'ensemble de données peut ensuite servir des recherches dans plusieurs domaines,
+de la parole et du langage au traitement d'image et de vidéo. L'ensemble de ses données est librement accessible.
+Ce corpus a donné lieu à la publication :
+
+\begin{itemize}
+	\item \fullcite{mdhaffar2020}
+\end{itemize}
+
+
+\subsection{Encadrement doctoral et scientifique}
+% Indiquer le % en cas de co-encadrement et les lier avec la production scientifique ; préciser le type de financement et le devenir des doctorants.
+% -- Maîtres de conférences début de carrière
+% Post-doc, stage de master 1 ou 2 à coloration scientifique, dans une équipe de recherche ou lié à une
+% thématique de recherche menée par le candidat (opposé au stage en entreprise d’insertion professionnelle)
+% -- Pour tous
+% Post-doc, stage de master 2 à coloration scientifique, dans une équipe de recherche (opposé au stage en entreprise d’insertion professionnelle)
+% Encadrement ou co-encadrement doctoral
+        
+\subsubsection{Co-encadrement doctoral I}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+ \item [Doctorant] Salima MDHAFFAR
+ \item [Intitulé] Reconnaissance de la parole dans un contexte de cours magistraux : évaluation, avancées et enrichissement
+ \item [Encadrants] Yannick Estève (25\%) directeur \\ 
+    Nicolas Hernandez (25\%) co-enc \\
+    Solen Quiniou (25 \%) co-enc \\
+     {\bf Antoine Laurent (25\%)} co-enc
+ \item [Date soutenance] 1 juillet 2020
+ \item [Financement] projet ANR PASTEL
+ \item [Thématique] Transcription en direct de cours magistraux, Adaptation, Proposition de métriques
+\end{description}
+
+\subsubsection{Co-encadrement doctoral II}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+ \item [Doctorant] Antoine CAUBRIÈRE
+ \item [Intitulé] Du signal au concept : Réseaux de neurones profonds appliqués à la compréhension de la parole
+ \item [Encadrants] Yannick Estève (33\%) dir \\ 
+    Emmanuel Morin (33\%) co-dir \\ 
+    {\bf Antoine Laurent (33\%) co-enc}
+ \item [Date soutenance] 29 janvier 2021
+ \item [Financement] projet région "Challenge" RAPACE
+ \item [Thématique] Extraction de concepts end-to-end
+\end{description}
+
+\subsubsection{Co-encadrement doctoral III}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+	\item [Doctorant] Valentin PELLOIN
+	\item [Intitulé] Intelligence Artificielle pour une compréhension de la parole contrôlée par la sémantique
+	\item [Encadrants] Sylvain Meignier (40\%) dir \\ 
+	Nathalie Camelin (30\%) co-enc \\ 
+	{\bf Antoine Laurent (30\%) co-enc}
+	\item [Date debut] 01 septembre 2020
+	\item [Financement] ANR AISSPER
+	\item [Thématique] Mécanismes d'attention, modèles neuronaux pour l'extraction de concepts
+\end{description}
+
+\subsubsection{Co-encadrement doctoral IV}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+	\item [Doctorant] Martin Lebourdais
+	\item [Intitulé] Gender-Equality Monitoring
+	\item [Encadrants] Sylvain Meignier (40\%) dir \\ 
+	Marie Tahon (30\%) co-enc \\ 
+	{\bf Antoine Laurent (30\%) co-enc}
+	\item [Date debut] 01 septembre 2020
+	\item [Financement] ANR GEM
+	\item [Thématique] Catégorisation d'un interruption dans la parole (Man's terrupting, Man's plaining, ...)
+\end{description}
+
+
+\subsubsection{Co-encadrement M2 I}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+	\item [Master2] Robin Wibaux  
+	\item [Intitulé] Séparation de données personnelles dans la parole
+	\item [Encadrants] Anthony Larcher (50\%) co-enc \\ 
+	{\bf Antoine Laurent (50\%) co-enc}
+	\item [Date] Janvier - Juillet 2019
+	\item [Thématique] Adversarial domain adaptation, source separation
+\end{description}
+
+\subsubsection{Co-encadrement M2 II}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+	\item [Doctorant] Titouan Teyssier
+	\item [Intitulé] Modèles neuronaux pour la traduction de la parole
+	\item [Encadrants] Fethi Bougares (50\%) co-enc \\
+	{\bf Antoine Laurent (50\%) co-enc}
+	\item [Date ] Janvier - Juillet 2020
+	\item [Thématique] Séquence vers séquence, encoder-decoder
+\end{description}
+
+\subsubsection{Co-encadrement M2 III}
+
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+	\item [Doctorant] Valentin Pelloin\footnote{Maintenant en thèse de doctorat}
+	\item [Intitulé] Intelligence Artificielle pour une compréhension de la parole contrôlée par la sémantique
+	\item [Encadrants] Nathalie Camelin (50\%) co-enc \\ 
+	{\bf Antoine Laurent (50\%) co-enc}
+	\item [Date ] Janvier - Juillet 2020
+	\item [Thématique] Début des travaux de thèse, utilisation d'un mécanisme d'attention dans le système d'extraction de concepts end-to-end
+\end{description}
+
+\subsubsection{Autres activités d'encadrement}
+\begin{description}[noitemsep, align=right, leftmargin=*, font=\normalfont]
+	\item[Projets étudiants 2020] Co-encadrement (50\%) groupe de projet 5A de l’École Nationale d’Ingénieurs du Mans (ENSIM) : débruitage d'image de phases à l'aide de techniques d'apprentissage automatique mettant en oeuvre des réseaux de neurones profonds.\\
+	Co-encadrement( 50\%) 2 groupes de M2 (parcours professionnel) : développement de démonstrateurs des outils de l'équipe Language and Speech Technologies du LIUM
+	\item[CSI] Membre du comité de suivi individuel des thèses de Florent Desnous débuté en 2016, abandon en 2019\\
+	Edwin Simonnet (2015-2019) : Réseaux de neurones profonds appliqués à la compréhension de la parole, thèse sous la direction de Yannick Estève (PR au LIUM), le Mans Université\\
+	Yevhenii Prokopolo (2018-) : Autonomous Lifelong Learning IntelligEnt Systems, thèse sous la direction d’Anthony Larcher (PR au LIUM), Le Mans Université
+\end{description}
+
+
+\subsection{Diffusion des travaux (rayonnement et vulgarisation)}
+% -- Jurys de thèse ou de HDR
+% Préciser le rôle (examinateur, président, rapporteur), le lieu...
+% -- Invitations
+% Articles ou communications invités (préciser) ; tutoriels (préciser)
+% Invitations dans des universités, instituts ou instances d’évaluation à l'étranger
+% -- Animation
+% Organisation de séminaires, écoles jeunes chercheurs ...
+% Animation de groupes de travail de GDR, animation de GDR...
+% Participation à des comités de programmes de conférences nationales, internationales
+% Comités éditoriaux de revues nationales, internationales
+% -- Vulgarisation
+% Articles grand public, interviews, livres à vocation pédagogique, polycopiés diffusés et utilisés par la
+% communauté, conférences, séminaires grand public, diffusion de la culture scientifique...
+% -- Diffusion logicielle (autre qu’en 1.)
+% Grand public, communauté scientifique de recherche, enseignement
+% -- Prix et Distinctions
+
+
+
+\subsubsection{Invitations}
+\begin{itemize}
+\item Invité a participer à la conférence LT4All (UNESCO 2019)
+\end{itemize}
+
+\begin{itemize}
+	\item Invité par l'ANR a reviewer le projet "CACAO", projet ANR CE23 - Intelligence Artificielle
+\end{itemize}
+
+% Invited abstract ICA 2019
+% Invited to participate as area chair to INTERSPEECH 2018
+
+\subsubsection{Animation}
+\begin{itemize} 
+	
+\item Co-auteur d'une proposition \href{https://www.clsp.jhu.edu/workshops/19-workshop/distant-supervision-for-representation-learning-in-speech-and-handwriting/}{\textbf{2019 Sixth Frederick Jelinek Memorial Summer Workshop 2019}}, John Hopkins University\\
+\textit{Distant Supervision for Representation Learning} \\
+Montréal - Canada, Juillet 2019 % 40 participants
+
+\item Co-organisateur de \href{https://hackatal.github.io/2018/}{\textbf{Hackathon CORIA-TALN 2018}} \\
+\textit{"Fake ou pas fake ?"} Détection et visualisation de fausses informations sur les réseaux \\
+IRISA - Rennes, mai 2018 % 40 participants
+
+\item Co-organisateur de \href{https://lium.univ-lemans.fr/slsp-2017/}{\textbf{SLSP 2017}} - 5th International Conference on Statistical Language and Speech Processing\\
+\textit{Méthodes statistiques pour le traitement du langage} \\
+Le Mans - octobre 2017 % ?? participants
+
+\item Co-organisateur de \href{http://www.odyssey2018.org/}{\textbf{Speaker Odyssey 2018}} - Workshop international \\
+\textit{The Speaker and Language Recognition Workshop} \\
+Les Sables d'Olonne - France, Juin 2018
+
+\item Reviewer pour les revues internationales Computer Speech and Language et Transactions on Asian and Low-Resource Language Information Processing, .
+
+\item Comité scientifique des conférences internationales  ASRU, INTERSPEECH, ICASSP, ICME.
+\item Comité scientifique de la conférence nationale du domaine JEP
+
+\end{itemize}
+
+\subsubsection{Vulgarisation}
+
+\begin{itemize}
+\item Mise en place lors de l'évènement \href{https://www.lemans.fr/citoyen/le-vivre-ensemble/le-contrat-de-ville/la-journee-nos-quartiers-notre-avenir/}{\textbf{Nos quartiers notre avenir}} - 340 participants à une journée organisée par la ville du Mans \\
+\textit{Système de transcription en temps réel, affichage d'un nuage de mots}\\
+Le Mans, Mars 2019
+
+\item Mise en place de démonstrateurs lors de la conférence  \href{http://trium.univ-lemans.fr/fr/trium-2017.html}{\textbf{TRIUM 2017}} \\
+\textit{Démonstration du système de transcription en temps réel}\\
+Le Mans, Novembre 2017
+
+\item Démonstration  \href{https://www.ouest-france.fr/pays-de-la-loire/le-mans-72000/le-mans-1-001-histoires-la-nuit-des-chercheurs-5984850}{\textbf{nuit des chercheurs 2018}} sur le thème "1001 histoires"\\
+\textit{Traduction de livres d'histoires et contes enfantins de l'anglais vers le francais (Transcription, Traduction, Synthèse vocale)}\\
+Le Mans, septembre 2018
+
+\end{itemize}
+
+
+\subsection{Responsabilités scientifiques}
+% En matière de responsabilités il faudra bien distinguer celles qui relèvent de la visibilité scientifique de celles qui relèvent de l’administration de la politique scientifique. En particulier, dans le corps des professeurs, les dernières ne doivent ni ne peuvent, en aucun cas donner lieu à l’octroi de la prime sans résultats scientifiques de haut niveau pour le point 1. de leur dossier.
+
+\subsubsection{Scientifiques}
+
+
+\begin{itemize}
+\item Participation dans le projet ANR \href{https://lium.univ-lemans.fr/on-trac/}{ON-TRAC 2018} \\
+    \textit{Traduire la parole sans la transcrire}
+
+\item Participation dans le projet ANR \href{https://lium.univ-lemans.fr/extensor/1}{Extensor 2020} \\
+\textit{End-To-end Evolutive Neural Networks for Speaker Recognition}
+
+\item Participation dans le projet ANR \href{https://lium.univ-lemans.fr/deep-privacy/}{Deep—Privacy} \\
+\textit{Approche distribuée, personnalisée et respectueuse de la vie privée pour le traitement de la parole}
+
+\item Participation dans le projet ANR \href{https://lium.univ-lemans.fr/aissper/}{AISSPER} \\
+\textit{Intelligence artificielle pour une compréhension de la parole contrôlée par la sémantique}
+
+\item Participation dans le projet régional \href{https://lium.univ-lemans.fr/rapace/}{RAPACE} RFI AtlanStic 2020\\
+\textit{Réseaux de neurones profonds pour le traitement de la langue orale et écrite}
+
+\item Participation dans le projet ANR \href{https://lium.univ-lemans.fr/antract/}{Antract}\\
+\textit{Transdisciplinary Analysis of French Newsreels}
+
+
+\item Participation dans le projet régional \href{https://lium.univ-lemans.fr/blackcompass/}{BlackCompass}\\
+\textit{Développement d'une solution logicielle pour valoriser le contenu des échanges téléphoniques entre consommateurs et marques}
+
+\item Responsable scientifique pour le LIUM du projet ANR \href{https://lium.univ-lemans.fr/gem/}{GEM (2020-2023)} \\
+\textit{Gender Equality Monitoring}
+
+\item Responsable scientifique pour le LIUM (équipe LST) du projet ANR \href{https://lium.univ-lemans.fr/pastel/}{PASTEL (2016-2021)} \\
+\textit{Transcription Automatique de la Parole pour l'Apprentissage et la Formation}
+
+
+\item Responsable scientifique du contrat de collaboration de recherche passé entre le LIUM et la société Spécinov
+
+\item Membre du conseil scientifique de l'UFR Sciences de L'Université du Mans
+
+
+\end{itemize}
+
+% APRI 2018 - 5000 
+
+
+\subsubsection{Autres activités et responsabilités (pédagogiques, administratives, etc)}
+
+\begin{itemize}
+
+\item \textbf{Responsabilité de la deuxième année de licence d'informatique} de l'UFR Sciences depuis 2018.  \\
+Cette formation compte environ 70 étudiants. Les contraintes liées au COVID ont particulièrement accentué la charge de travail que représente une telle responsabilité.
+\item \textbf{Responsable de l'informatique pour les L2} de l'UFR Sciences (Physique Chimie - ENSIM, ESGT, Mathématiques). 130 étudiants environ
+\end{itemize}
+% Resp. A2 STMN formation Ing. Sciences et Techniques des Médias Numeriques (STMN) en collaboration avec le Conservatoire National des Arts et Metiers
+
+% Cordinateur d'un projet européen deponsé Fev 2019 EMJMD Master Mundus (Nouvelle formation Master)
+% Projet composé de plus de 50 partenaires
+% Creation du programme et des dossier de depot
+
+
+% TODO: nouvel arrivant MCF en Sept 2017, decharge 32 HETD en 2017-2018, aucune decharge enseignement en 2018-2019. Nombreux nouveaux cours, qui requierent de la preparation du contenu nouveau.
+
+% TODO: mobilité geographique (Angleterre - France)
+
+% TODO: congés naissance et paternité. Decharge de ~9 HETD
+
+\clearpage
+
+\end{document}
