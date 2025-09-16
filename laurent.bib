@@ -1,3 +1,35 @@
+@inproceedings{Khurana25,
+  Title = {Factorized RVQ-GAN For Disentangled Speech Tokenization},
+  Author = {Sameer Khurana, Dominik Klement, Antoine Laurent, Dominik Bobos, Juraj Novosad, Peter Gazdik, Ellen Zhang , Zili Huang, Amir Hussein, Ricard Marxer, Yoshiki Masuyama, Ryo Aihara, Chiori Hori, François G. Germain, Gordon Wichern, Jonathan Le Roux},
+  Abstract = {We propose Hierarchical Audio Codec (HAC), a unified neural speech codec that factorizes its bottleneck into three linguistic levels-acoustic, phonetic, and lexical-within a single model. HAC leverages two knowledge distillation objectives: one from a pre-trained speech encoder (HuBERT) for phonemelevel structure, and another from a text-based encoder (LaBSE) for lexical cues. Experiments on English and multilingual data show that HAC's factorized bottleneck yields disentangled token sets: one aligns with phonemes, while another captures word-level semantics. Quantitative evaluations confirm that HAC tokens preserve naturalness and provide interpretable linguistic information, outperforming single-level baselines in both disentanglement and reconstruction quality. These findings underscore HAC's potential as a unified discrete speech representation, bridging acoustic detail and lexical meaning for downstream speech generation and understanding tasks.},
+  Booktitle = {Interspeech 2025},
+  Address = {Rotterdam, Netherlands},
+  Year = {2025},
+  Month = {August}
+}
+
+@inproceedings{Aran25i,
+  Title = {Scaling pseudo-labeling data for end-to-end low-resource speech translation (the case of Kurdish language)},
+  Author = {Mohammad Mohammadamini, Aghilas Sini, Marie Tahon, Antoine Laurent},
+  Abstract = {In this paper we propose a pseudo-labeling pipeline to generate End-to-End Speech to Text Translation (E2E S2TT) data for low-resource languages. This pipeline allows us to achieve very promising results on S2TT task without having any parallel speech corpora. The proposed pipeline is composed of a speech segmentation, followed by a speech recognition system and a machine translation system. Our study is performed on Kurdish language which doesn't have resources for E2E S2TT. In our study, we firstly fine-tune and evaluate the ASR and MT systems to achieve a degree of reliability on these components. The pipeline is used to pseudo-label 3,200 hours of Kurdish speech aligned with English translation. The pseudo-labeled data is extensively evaluated with different E2E S2TT systems such as Seq2Seq Transfomers and Whisper model. Achieving a 20.68 BLEU score on Fleurs benchmark shows the effectiveness of our approach and its potential for other low-resource languages.},
+  Booktitle = {Interspeech 2025},
+  Address = {Rotterdam, Netherlands},
+  Year = {2025},
+  Month = {August}
+}
+
+@inproceedings{Aran25iwlst,
+  Title = {Kuvost: A Large-Scale Human-Annotated English to Central Kurdish Speech Translation Dataset Driven from English Common Voice},
+  Author = {Mohammad Mohammadamini, Daban Jaff, Sara Jamal, Ibrahim Ahmed, Hawkar Omar, Darya Sabir, Marie Tahon, Antoine Laurent},
+  Abstract = {In this paper, we introduce the Kuvost, a largescale English to Central Kurdish speech-totext-translation (S2TT) dataset. This dataset includes 786k utterances derived from Common Voice 18, translated and revised by 230 volunteers into Central Kurdish. Encompassing 1,003 hours of translated speech, this dataset can play a groundbreaking role for Central Kurdish, which severely lacks public-domain resources for speech translation. Following the dataset division in Common Voice, there are 298k, 6,226, and 7,253 samples in the train, development, and test sets, respectively. The dataset is evaluated on end-to-end English-to-Kurdish S2TT using Whisper V3 Large and SeamlessM4T V2 Large models. The dataset is available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License https://huggingface. co/datasets/aranemini/kuvost.},
+  Booktitle = {IWSLT 2025@ACL 2025},
+  Address = {Vienna, Austria},
+  Year = {2025},
+  Month = {July}
+}
+
+
+
 @inproceedings{Khurana24b,
   Title = {ZeroST: Zero-Shot Speech Translation},
   Author = {Sameer Khurana, Chiori Hori, Antoine Laurent, Gordon Wichern, Jonathan Le Roux},
